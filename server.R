@@ -502,7 +502,7 @@ output$instructions<-renderUI({
       (applyfilter$afa==3))
     return(NULL)
   else{HTML(paste("Please filter all possible columns by selecting ONE term per 
-                  column and click appy filters.", "For time, any chosen year 
+                  column and click apply filters.", "For time, any chosen year 
                   has to be between 1990 and 2016.",sep = "<br/>"))}
 })
 
