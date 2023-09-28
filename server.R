@@ -14,14 +14,18 @@ library(reshape2) #melt
 #library(sf)
 library(sp) #shapefile
 library(ggplot2) #visualization
-library(tmap) #visualization
+#install_github("r-tmap/tmaptools")
+#install_github("r-tmap/tmap") 
+#install.packages("tmap", repos = c("https://r-tmap.r-universe.dev", "https://cloud.r-project.org"))
 #remotes::install_github('r-tmap/tmap')
+library(tmap) #visualization
 library(leaflet) #visualization/ map
-library(mapview)  #save plot
+library(mapview, dependencies=T)  #save plot
+#install.packages('terra', repos='https://rspatial.r-universe.dev')
+#library(terra)
 library(webshot)
 #webshot::install_phantomjs()
-#remotes::install_github("rspatial/terra")
-library(terra)
+
 
 library(data.table)#auswahl für visualisierung eurostat data
 library(DT) #auswahl für visualisierung eurostat data
