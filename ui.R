@@ -1,5 +1,3 @@
-## ui.R ##
-
 library(readxl) #data import
 library(xlsx) #export data; Java muss installiert sein
 #Sys.setenv(JAVA_HOME="C:\Program Files (x86)\Java\jre-1.8")
@@ -20,11 +18,14 @@ library(ggplot2) #visualization
 #install_github("r-tmap/tmap") 
 #install.packages("tmap", repos = c("https://r-tmap.r-universe.dev", "https://cloud.r-project.org"))
 #remotes::install_github('r-tmap/tmap')
-library(tmap) #visualization
-library(leaflet) #visualization/ map
+#library(tmap) #visualization
+#library(leaflet) #visualization/ map
 library(mapview)  #save plot
+#install.packages('terra', repos='https://rspatial.r-universe.dev')
+#library(terra)
 library(webshot)
 #webshot::install_phantomjs()
+
 
 library(data.table)#auswahl für visualisierung eurostat data
 library(DT) #auswahl für visualisierung eurostat data
@@ -41,7 +42,9 @@ options(shiny.fullstacktrace = TRUE) #, shiny.error = browser
 
 #https://cran.r-project.org/web/packages/pals/vignettes/bivariate_choropleths.html
 ################################################
-#########
+
+
+## ui.R ##
 
 dashboardPage(
   dashboardHeader(title = "Bivariate Choreopleths"),

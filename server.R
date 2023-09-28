@@ -18,9 +18,9 @@ library(ggplot2) #visualization
 #install_github("r-tmap/tmap") 
 #install.packages("tmap", repos = c("https://r-tmap.r-universe.dev", "https://cloud.r-project.org"))
 #remotes::install_github('r-tmap/tmap')
-library(tmap) #visualization
-library(leaflet) #visualization/ map
-library(mapview, dependencies=T)  #save plot
+#library(tmap) #visualization
+#library(leaflet) #visualization/ map
+library(mapview)  #save plot
 #install.packages('terra', repos='https://rspatial.r-universe.dev')
 #library(terra)
 library(webshot)
