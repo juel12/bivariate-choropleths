@@ -1,0 +1,3 @@
+\section{Division of tasks}
+
+The app was created in cooperation with Jenny Kloster. She discovered the eurostat package, which allows direct access to Eurostat datasets. Her primary focus was on data management necessary to use the Eurostat datasets as well as the eurostat package. The concept for the app was created together. I contributed to the practical implementation of our concept in the app with shiny, especially the capability to upload own datasets, which are then used to create a choropleth. The shiny plots were created following the instructions by \citeA{ArtSteinmetz.2017} and \citeA{JoshuaStevens.2015}.

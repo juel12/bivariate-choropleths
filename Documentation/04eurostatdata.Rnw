@@ -1,0 +1,11 @@
+\section{Eurostat data}
+
+Instead of uploading an own dataset, the user can choose to use any eurostat dataset. The app allows to search for eurostat datasets by entering a search term into a search bar. Once the user has found a dataset of interest, he or she can enter the code of the dataset into a second text box. The dataset will then be automatically downloaded. Access to eurostat data is obtained via the package "eurostat" \cite{Lahti.2017}. \\
+\hspace*{2em} After a dataset has been downloaded, a table displaying the data will be rendered. First of all, the user has to select the variables which are of interest (either two different variables or the same variable twice). \\
+\hspace*{2em} In the next step, a table with column filters is rendered. The user needs to filter all variables which are not blocked. The user should select only one level per column and a year between 1990 and 2016. If these conditions are not met, the filters can not be applied. The columns containing the previously selected variables as well as the variables with the geographic areas and values are blocked and can not be filtered. \\ 
+\hspace*{2em} Based on the applied filters, the eurostat data are then subsetted and reshaped from long to wide format. Subsequently, the levels of the previously selected variables of interest are shown and need to be selected. \\
+\hspace*{2em} After the "Create plot" button has been clicked, a variable with the population density will be added to the data on which the selected levels will be normalized. Currently, the population density is retrieved from the eurostat dataset \verb!"demo_r_d3dens"!. However, population densities of different European countries are only available for years between 1990 and 2016, which is a limitation. Also, it has to be noted, that all rows from the dataset for which the geographical area does correspond to any area given in the \verb!"demo_r_d3dens"! dataset will be removed.\\
+\hspace*{2em} Finally, the bivariate choropleth and a legend will be rendered. A mapshot of the bivariate choropleth may be downloaded. Furthermore, the final dataset can also be downloaded and may be uploaded to the app later on to reproduce the same plot.
+
+
+
