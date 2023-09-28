@@ -1,5 +1,6 @@
 library(readxl) #data import
 library(xlsx) #export data; Java muss installiert sein
+#Sys.setenv(JAVA_HOME="C:\Program Files (x86)\Java\jre-1.8")
 library(eurostat) #eurostat data
 library(rvest) #scrape web pages
 
@@ -13,11 +14,14 @@ library(reshape2) #melt
 #library(sf)
 library(sp) #shapefile
 library(ggplot2) #visualization
-library(tmap, lib.loc="~/R/win-library/3.5") #visualization
+library(tmap) #visualization
+#remotes::install_github('r-tmap/tmap')
 library(leaflet) #visualization/ map
 library(mapview)  #save plot
 library(webshot)
 #webshot::install_phantomjs()
+#remotes::install_github("rspatial/terra")
+library(terra)
 
 library(data.table)#auswahl für visualisierung eurostat data
 library(DT) #auswahl für visualisierung eurostat data

@@ -1,10 +1,50 @@
 ## ui.R ##
 
+library(readxl) #data import
+library(xlsx) #export data; Java muss installiert sein
+#Sys.setenv(JAVA_HOME="C:\Program Files (x86)\Java\jre-1.8")
+library(eurostat) #eurostat data
+library(rvest) #scrape web pages
+
+#library(RColorBrewer) #color
+library(Hmisc)
+library(stringr)
+library(dplyr) #filter, mutate, reshape
+library(reshape2) #melt
+'%!in%' <- function(x,y)!('%in%'(x,y))
+
+#library(sf)
+library(sp) #shapefile
+library(ggplot2) #visualization
+library(tmap) #visualization
+#remotes::install_github('r-tmap/tmap')
+library(leaflet) #visualization/ map
+library(mapview)  #save plot
+library(webshot)
+#webshot::install_phantomjs()
+
+library(data.table)#auswahl für visualisierung eurostat data
+library(DT) #auswahl für visualisierung eurostat data
+
+library(shiny)
+library(shinyjs) #enable & disable/ show & hide
+jsResetCode <- "shinyjs.reset = function() {history.go(0)}"
+
+library(shinydashboard)
+library(dashboardthemes)
+#install_github("nik01010/dashboardthemes")
+#library(shinyWidgets)
+options(shiny.fullstacktrace = TRUE) #, shiny.error = browser
+
+#https://cran.r-project.org/web/packages/pals/vignettes/bivariate_choropleths.html
+################################################
+#########
+
 dashboardPage(
   dashboardHeader(title = "Bivariate Choreopleths"),
   dashboardSidebar(theme_onenote, tags$style(".skin-blue .sidebar a { color: #444; }"),#design
     shinyjs::useShinyjs(),
-    extendShinyjs(text = jsResetCode),
+    #extendShinyjs(text = jsResetCode),
     fluidRow(
       column(12, align = "center", 
              selectInput("data_input1", "Choose data Input",
