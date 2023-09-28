@@ -14,6 +14,8 @@ library(reshape2) #melt
 #library(sf)
 library(sp) #shapefile
 library(ggplot2) #visualization
+library(tmap) #tm_shape
+#needs Rtools to be installed
 #System ->Advanced --> change Path for Rtools, e.g. C:\Rtools40\usr\bin depending on version
 library(leaflet) #visualization/ map
 library(leafem)

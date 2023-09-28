@@ -14,6 +14,8 @@ library(reshape2) #melt
 #library(sf)
 library(sp) #shapefile
 library(ggplot2) #visualization
+library(tmap) #tm_shape
+#needs Rtools to be installed
 #System ->Advanced --> change Path for Rtools, e.g. C:\Rtools40\usr\bin depending on version
 library(leaflet) #visualization/ map
 library(leafem)
@@ -56,7 +58,7 @@ output$data_input2 <- renderUI({
                    ".xlsx",
                    ".xls"))
           }else{
-          textInput("file2", "Please enter a code corresponding to a Eurostat data", 
+          textInput("file2", "Please enter a code corresponding to a Eurostat dataset", 
                     value = "") #hlth_silc_18
           }
       }
@@ -1139,7 +1141,7 @@ m2 <- reactive({
 
       #merge with map
       df4<-sp::merge(selected_map, finaldata, by = "iso_a2", duplicateGeoms = TRUE)
-      plot1<- tm_shape(df4) +
+      plot1<- tmap::tm_shape(df4) +
         tm_fill(col = "value", palette = bvColors, legend.show = F) +
         tm_borders()
       m2<-tmap_leaflet(plot1)
