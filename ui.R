@@ -14,15 +14,12 @@ library(reshape2) #melt
 #library(sf)
 library(sp) #shapefile
 library(ggplot2) #visualization
-#install_github("r-tmap/tmaptools")
-#install_github("r-tmap/tmap") 
-#install.packages("tmap", repos = c("https://r-tmap.r-universe.dev", "https://cloud.r-project.org"))
-#remotes::install_github('r-tmap/tmap')
-#library(tmap) #visualization
-#library(leaflet) #visualization/ map
+#System ->Advanced --> change Path for Rtools, e.g. C:\Rtools40\usr\bin depending on version
+library(leaflet) #visualization/ map
+library(leafem)
 library(mapview)  #save plot
 #install.packages('terra', repos='https://rspatial.r-universe.dev')
-#library(terra)
+library(terra)
 library(webshot)
 #webshot::install_phantomjs()
 
