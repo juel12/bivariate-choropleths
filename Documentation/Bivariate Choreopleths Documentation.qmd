@@ -32,7 +32,13 @@ After uploading a dataset, a table is rendered displaying the data to help the u
 
 If a time variable and any level of the variable are selected, the dataset will be filtered based on the level of this variable (e.g. only data from the year 2015 will be used going forward). The variables that are compared in the bivariate choropleth will be normalized on the variable containing the population sizes for each area.
 
-After the "Create plot" button has been clicked, the bivariate choreopleth and a legend will be rendered. A mapshot of the bivariate choreopleth can be downloaded.
+After the "Create plot" button has been clicked, the bivariate choreopleth and a legend will be rendered. A mapshot of the bivariate choreopleth can be downloaded. To use this function, you might need to run the following code first:
+
+```{r message=FALSE}
+webshot::install_phantomjs()
+```
+
+This will install "PhantomJS", which is required by "webshot" [@webshot].
 
 ## Eurostat data
 

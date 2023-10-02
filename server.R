@@ -23,7 +23,7 @@ library(mapview)  #save plot
 #install.packages('terra', repos='https://rspatial.r-universe.dev')
 library(terra)
 library(webshot)
-#webshot::install_phantomjs()
+#webshot::install_phantomjs() #needs to be installed for download to work
 
 
 library(data.table)#auswahl für visualisierung eurostat data
@@ -38,6 +38,10 @@ library(dashboardthemes)
 #install_github("nik01010/dashboardthemes")
 #library(shinyWidgets)
 options(shiny.fullstacktrace = TRUE) #, shiny.error = browser
+
+#fix tmap invalid polygons
+tmap_options(check.and.fix = TRUE)
+sf_use_s2(FALSE) #https://github.com/afrimapr/afrimapr-book/issues/30
 
 #https://cran.r-project.org/web/packages/pals/vignettes/bivariate_choropleths.html
 ################################################
@@ -1190,7 +1194,7 @@ legend <- reactive({
     X2<-paste(Xb,sep=" ", "-->")
 
     #Legende
-    legendGoal=melt(matrix(1:9,nrow=3)) #3*3 matrix
+    legendGoal=matrix(1:9,nrow=3) #3*3 matrix
     lg <- ggplot(legendGoal, aes(Var2,Var1,fill = as.factor(value)))+ 
                   geom_tile()+
                   scale_fill_manual(name="",values=bvColors)+

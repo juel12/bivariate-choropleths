@@ -39,10 +39,12 @@ library(dashboardthemes)
 #library(shinyWidgets)
 options(shiny.fullstacktrace = TRUE) #, shiny.error = browser
 
+#fix tmap invalid polygons
+tmap_options(check.and.fix = TRUE)
+sf_use_s2(FALSE) #https://github.com/afrimapr/afrimapr-book/issues/30
+
 #https://cran.r-project.org/web/packages/pals/vignettes/bivariate_choropleths.html
 ################################################
-
-
 ## ui.R ##
 
 dashboardPage(

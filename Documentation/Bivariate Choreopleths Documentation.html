@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
@@ -105,7 +139,11 @@ div.csl-indent {
 <p>The user can choose to upload an own dataset. However, so far only excel datasets (.xls or .xlsx) can be uploaded. Moreover, the data need to be cleaned beforehand. The dataset should be provided in wide format.</p>
 <p>After uploading a dataset, a table is rendered displaying the data to help the user select variables. The user needs to select two variables of interest and a variable with the geographic areas (either German federal states or European countries) in the sidebar. Optionally, a variable containing some kind of time information (e.g.&nbsp;years) can be specified, in which case any level of the variable can be selected. Furthermore, the user needs to select the map that will be used to plot the data. So far, only maps of European countries and German federal states are available. Maps can not be uploaded by the user. The levels of the dataset variable containing the geographic area needs to correspond to the map.</p>
 <p>If a time variable and any level of the variable are selected, the dataset will be filtered based on the level of this variable (e.g.&nbsp;only data from the year 2015 will be used going forward). The variables that are compared in the bivariate choropleth will be normalized on the variable containing the population sizes for each area.</p>
-<p>After the “Create plot” button has been clicked, the bivariate choreopleth and a legend will be rendered. A mapshot of the bivariate choreopleth can be downloaded.</p>
+<p>After the “Create plot” button has been clicked, the bivariate choreopleth and a legend will be rendered. A mapshot of the bivariate choreopleth can be downloaded. To use this function, you might need to run the following code first:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>webshot<span class="sc">::</span><span class="fu">install_phantomjs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This will install “PhantomJS”, which is required by “webshot” <span class="citation" data-cites="webshot">(<a href="#ref-webshot" role="doc-biblioref">Chang 2023</a>)</span>.</p>
 </section>
 <section id="eurostat-data" class="level2">
 <h2 class="anchored" data-anchor-id="eurostat-data">Eurostat data</h2>
@@ -127,6 +165,9 @@ div.csl-indent {
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-ArtSteinmetz.2017" class="csl-entry" role="listitem">
 Art Steinmetz. 2017. <span>“<span class="nocase">Exploring the distribution of NYC Pre-K seats vs. neighborhood income</span>.”</span> <a href="https://rpubs.com/apsteinmetz/prek">https://rpubs.com/apsteinmetz/prek</a>.
+</div>
+<div id="ref-webshot" class="csl-entry" role="listitem">
+Chang, Winston. 2023. <span>“Webshot: Take Screenshots of Web Pages.”</span> <a href="https://CRAN.R-project.org/package=webshot">https://CRAN.R-project.org/package=webshot</a>.
 </div>
 <div id="ref-Chang.2018" class="csl-entry" role="listitem">
 Chang, Winston, Joe Cheng, J. J. Allaire, Yihui Xie, and Jonathan McPherson. 2018. <span>“<span class="nocase">shiny: Web Application Framework for R</span>.”</span> <a href="https://CRAN.R-project.org/package=shiny">https://CRAN.R-project.org/package=shiny</a>.
