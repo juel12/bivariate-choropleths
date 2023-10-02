@@ -1,8 +1,11 @@
 library(readxl) #data import
-library(xlsx) #export data; Java muss installiert sein
+#library(rJava)
+#library(xlsx) #export data; Java needs to be installed
 #Sys.setenv(JAVA_HOME="C:\Program Files (x86)\Java\jre-1.8")
+library(vctrs)
 library(eurostat) #eurostat data
-library(rvest) #scrape web pages
+
+#library(rvest) #scrape web pages
 
 #library(RColorBrewer) #color
 library(Hmisc)
@@ -1072,24 +1075,24 @@ dataset4 <- reactive({
 
 ################################################################################
 #download the final data (wenn eurostat) --> funktioniert nur in browser
-
-output$downloadData1 <- renderUI({
-  if(is.null(dataset4()) || input$data_input1=="Upload own dataset" ||
-     is.null(dataset0$df_data))
-    return(NULL)
-  else{
-   downloadButton("downloadData", "Download final dataset")
-  }
-})
-
-output$downloadData <- downloadHandler(
-  filename =function() {
-      paste("finaldata-", Sys.Date(), ".xlsx", sep="")
-        },
-  content = function(file) {
-      write.xlsx(dataset3(), file, row.names = F)
-        }
-)
+# 
+# output$downloadData1 <- renderUI({
+#   if(is.null(dataset4()) || input$data_input1=="Upload own dataset" ||
+#      is.null(dataset0$df_data))
+#     return(NULL)
+#   else{
+#    downloadButton("downloadData", "Download final dataset")
+#   }
+# })
+# 
+# output$downloadData <- downloadHandler(
+#   filename =function() {
+#       paste("finaldata-", Sys.Date(), ".csv", sep="")
+#         },
+#   content = function(file) {
+#       write.table(dataset3(), file, row.names = F)
+#         }
+# )
 
 ################################################################################
 #for legend
@@ -1148,7 +1151,7 @@ m2 <- reactive({
       plot1<- tmap::tm_shape(df4) +
         tm_fill(col = "value", palette = bvColors, legend.show = F) +
         tm_borders()
-      m2<-tmap_leaflet(plot1)
+      m2<-tmap_leaflet(plot1, in.shiny = TRUE)
       m2
    }
     })
@@ -1194,7 +1197,7 @@ legend <- reactive({
     X2<-paste(Xb,sep=" ", "-->")
 
     #Legende
-    legendGoal=matrix(1:9,nrow=3) #3*3 matrix
+    legendGoal=melt(matrix(1:9,nrow=3)) #3*3 matrix
     lg <- ggplot(legendGoal, aes(Var2,Var1,fill = as.factor(value)))+ 
                   geom_tile()+
                   scale_fill_manual(name="",values=bvColors)+

@@ -32,13 +32,11 @@ After uploading a dataset, a table is rendered displaying the data to help the u
 
 If a time variable and any level of the variable are selected, the dataset will be filtered based on the level of this variable (e.g. only data from the year 2015 will be used going forward). The variables that are compared in the bivariate choropleth will be normalized on the variable containing the population sizes for each area.
 
-After the "Create plot" button has been clicked, the bivariate choreopleth and a legend will be rendered. A mapshot of the bivariate choreopleth can be downloaded. To use this function, you might need to run the following code first:
+After the "Create plot" button has been clicked, the bivariate choreopleth and a legend will be rendered. A mapshot of the bivariate choreopleth can be downloaded using "webshot" [@webshot]. However, as this requires "PhantomJS", you might need to install it first using the following code:
 
-```{r message=FALSE}
+``` {.R eval="false"}
 webshot::install_phantomjs()
 ```
-
-This will install "PhantomJS", which is required by "webshot" [@webshot].
 
 ## Eurostat data
 
@@ -58,4 +56,4 @@ Finally, the bivariate choropleth and a legend will be rendered. A mapshot of th
 
 ## Credit
 
-The app was created during a seminar at the University of Konstanz (course instructor: Matthias Bannert) in 2018/19 by Jenny Kloster and Julia E. Koller. Both contributed to the concept for the app. Jenny Kloster discovered the "eurostat" package and focused on data management necessary to use the Eurostat datasets and the "eurostat" package. Julia E. Koller programmed the app with shiny, also using instructions by @ArtSteinmetz.2017 and @JoshuaStevens.2015. Furthermore, she updated the app and documentation in 2023.
+The app was created during a seminar at the University of Konstanz (course instructor: Matthias Bannert) in 2018/19 by Jenny Kloster and Julia E. Koller. Both contributed to the app concept. Jenny Kloster focused on the data management required for the use of Eurostat datasets and the "eurostat" package. Julia E. Koller programmed the app with "shiny" using instructions from @ArtSteinmetz.2017 and @JoshuaStevens.2015. Furthermore, she updated the app and documentation in 2023.
