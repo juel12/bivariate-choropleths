@@ -22,7 +22,7 @@ At this point, it has to be noted, that data exploration tools should never be u
 
 The bivariate choropleths created in the app are being created following the instructions by @ArtSteinmetz.2017.
 
-The variables compared in the plot are being normalized on the population sizes. This is important because otherwise, population size differences of the geographic areas would be reflected in the choropleth [@JoshuaStevens.2015]. Both variables are categorized into three groups. Subsequently, a single variable combining the classified variables is created. This variable contains nine (3\*3) groups, each corresponding to a single color. The geographical shapes, corresponding to the geographic areas in the dataset, are then colored based on this variable. All bivariate choropleths are produced using the package tmap [@Tennekes.2018] and plotted on a world map using leaflet [@Cheng.2018].
+The variables compared in the plot are being normalized on the population sizes. This is important because otherwise, population size differences of the geographic areas would be reflected in the choropleth [@JoshuaStevens.2015]. Both variables are categorized into three groups. Subsequently, a single variable combining the classified variables is created. This variable contains nine (3\*3) groups, each corresponding to a single color. The geographical shapes, corresponding to the geographic areas in the dataset, are then colored based on this variable. All bivariate choropleths are produced using the package "tmap" [@Tennekes.2018] and plotted on a world map using leaflet [@Cheng.2018].
 
 ## Own dataset
 
