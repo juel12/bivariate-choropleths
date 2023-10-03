@@ -11,7 +11,6 @@ library(eurostat) #eurostat data
 library(Hmisc)
 library(stringr)
 library(dplyr) #filter, mutate, reshape
-library(reshape2) #melt
 library(lubridate) #extract year
 '%!in%' <- function(x,y)!('%in%'(x,y))
 
@@ -1200,8 +1199,8 @@ legend <- reactive({
     X2<-paste(Xb,sep=" ", "-->")
 
     #Legende
-    legendGoal=reshape2::melt(matrix(1:9,nrow=3)) #3*3 matrix
-    lg <- ggplot(legendGoal, aes(Var2,Var1,fill = as.factor(value)))+ 
+    legendGoal=as.data.frame.table(matrix(1:9,nrow=3)) #3*3 matrix
+    lg <- ggplot(legendGoal, aes(Var2,Var1,fill = as.factor(Freq)))+ 
                   geom_tile()+
                   scale_fill_manual(name="",values=bvColors)+
                   theme(legend.position="none", 
