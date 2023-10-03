@@ -1199,13 +1199,8 @@ shinyServer(function(input,output,session){
       X2<-paste(Xb,sep=" ", "-->")
       
       #Legende
-      <<<<<<< HEAD
       legendGoal=as.data.frame.table(matrix(1:9,nrow=3)) #3*3 matrix
       lg <- ggplot(legendGoal, aes(Var2,Var1,fill = as.factor(Freq)))+ 
-        =======
-        legendGoal=melt(matrix(1:9,nrow=3)) #3*3 matrix
-      lg <- ggplot(legendGoal, aes(Var2,Var1,fill = as.factor(value)))+ 
-        >>>>>>> d9344be6d57ebfc4ee08052e5f082c4e40598c2d
       geom_tile()+
         scale_fill_manual(name="",values=bvColors)+
         theme(legend.position="none", 
