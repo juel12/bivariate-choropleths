@@ -55,3 +55,5 @@ If you search for datasets using the search term "health", you can find a number
 ## Credit
 
 The app was created during a seminar at the University of Konstanz (course instructor: [Matthias Bannert](https://github.com/mbannert)) in 2018/19 by Jenny Kloster and Julia E. Koller. Both contributed to the app concept. Jenny Kloster focused on the data management required for the use of Eurostat datasets and the "eurostat" package. Julia E. Koller programmed the app with "shiny" using instructions from @ArtSteinmetz.2017 and @JoshuaStevens.2015. Furthermore, she updated the app and documentation in 2023.
+
+The app was created during a seminar at the University of Konstanz (course instructor: Matthias Bannert) in 2018/19 by Jenny Kloster and Julia E. Koller. Both contributed to the app concept. Jenny Kloster focused on the data management required for the use of Eurostat datasets and the "eurostat" package. Julia E. Koller programmed the app with "shiny" using instructions from @ArtSteinmetz.2017 and @JoshuaStevens.2015. Furthermore, she updated the app and documentation in 2023.
