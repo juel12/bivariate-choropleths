@@ -11,5 +11,6 @@ Encoding: UTF-8
 
 RnwWeave: Sweave
 LaTeX: pdfLaTeX
+DisableExecuteRprofile: Yes
 
 SpellingDictionary: en_US
