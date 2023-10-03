@@ -260,7 +260,7 @@ shinyServer(function(input,output,session){
       else{
         if(input$data_input1 == "Eurostat data"){
           dataset<-as.data.frame(dataset0$df_data)
-          print(class(dataset))
+          #print(class(dataset))
           #dataset$time<-as.factor(dataset$time) # level in DT
           dataset[,-which(names(dataset) %in% c("geo", "values"))]<-lapply(dataset[,-which(names(dataset) %in% c("geo", "values"))], as.factor)
           dataset
@@ -1077,24 +1077,24 @@ shinyServer(function(input,output,session){
   
   ################################################################################
   #download the final data (wenn eurostat) --> funktioniert nur in browser
-  # 
-  # output$downloadData1 <- renderUI({
-  #   if(is.null(dataset4()) || input$data_input1=="Upload own dataset" ||
-  #      is.null(dataset0$df_data))
-  #     return(NULL)
-  #   else{
-  #    downloadButton("downloadData", "Download final dataset")
-  #   }
-  # })
-  # 
-  # output$downloadData <- downloadHandler(
-  #   filename =function() {
-  #       paste("finaldata-", Sys.Date(), ".csv", sep="")
-  #         },
-  #   content = function(file) {
-  #       write.table(dataset3(), file, row.names = F)
-  #         }
-  # )
+
+  output$downloadData1 <- renderUI({
+    if(is.null(dataset4()) || input$data_input1=="Upload own dataset" ||
+       is.null(dataset0$df_data))
+      return(NULL)
+    else{
+     downloadButton("downloadData", "Download final dataset")
+    }
+  })
+
+  output$downloadData <- downloadHandler(
+    filename =function() {
+        paste("eurostat-",ID(),"-subset-", Sys.Date(), ".csv", sep="")
+          },
+    content = function(file) {
+        write.table(dataset3(), file, row.names = F)
+          }
+  )
   
   ################################################################################
   #for legend
