@@ -1,0 +1,59 @@
+---
+title: "Bivariate Choropleths Documentation"
+author: "Julia E. Koller"
+format: html
+editor: visual
+bibliography: references.bib
+---
+
+# A Shiny app for bivariate Choropleths
+
+## Introduction
+
+This app was created using shiny [@Chang.2018] with R version 3.5.2 (2018-12-20) and later updated with R version 4.3.1 (2023-06-16). Its purpose is to create bivariate choropleths.
+
+Creating bivariate choropleths can be a bit tricky and somewhat time-consuming, especially for newbies in R and similar programs. Therefore, an app might be a convenient way to simplify the creation of bivariate choropleths.
+
+The app was not specifically created for psychological purposes. However, data visualization and exploration are gaining importance for psychological research. The current app can be a helpful tool for exploring potential relationships between two variables across different geographical areas or may be used to visualize the findings of such. The app can be applied to any topic, including psychological questions, depending on the data. For example, a health psychologist may be interested in one of the many Eurostat datasets concerned with health (e.g. self-perceived health).
+
+## Bivariate Choropleths
+
+The bivariate choropleths created in the app are being created following the instructions by @ArtSteinmetz.2017.
+
+The variables compared in the plot are being normalized on the population sizes. This is important because otherwise, population size differences of the geographic areas would be reflected in the choropleth [@JoshuaStevens.2015]. Both variables are categorized into three groups. Subsequently, a single variable combining the classified variables is created. This variable contains nine (3\*3) groups, each corresponding to a single color. The geographical shapes, corresponding to the geographic areas in the dataset, are then colored based on this variable. All bivariate choropleths are produced using the package "tmap" [@Tennekes.2018] and plotted on a world map using leaflet [@Cheng.2018].
+
+## Own dataset
+
+The user can choose to upload an own dataset. However, so far only excel datasets (.xls or .xlsx) can be uploaded. Moreover, the data need to be cleaned beforehand. The dataset should be provided in wide format.
+
+After uploading a dataset, a table is rendered displaying the data to help the user select variables. The user needs to select two variables of interest and a variable with the geographic areas (either German federal states or European countries) in the sidebar. Optionally, a variable containing some kind of time information (e.g. years) can be specified, in which case any level of the variable can be selected. Furthermore, the user needs to select the map that will be used to plot the data. So far, only maps of European countries and German federal states are available. Maps can not be uploaded by the user. The levels of the dataset variable containing the geographic area needs to correspond to the map.
+
+If a time variable and any level of the variable are selected, the dataset will be filtered based on the level of this variable (e.g. only data from the year 2015 will be used going forward). The variables that are compared in the bivariate choropleth will be normalized on the variable containing the population sizes for each area.
+
+After the "Create plot" button has been clicked, the bivariate choropleth and a legend will be rendered. A mapshot of the bivariate choropleth can be downloaded using "webshot" [@webshot]. However, as this requires "PhantomJS", you might need to install it first using the following code:
+
+``` {.R eval="false"}
+webshot::install_phantomjs()
+```
+
+## Eurostat data
+
+Instead of uploading an own dataset, the user can choose to use any Eurostat dataset. The app allows to search for Eurostat datasets by entering a search term into a search bar. Once the user has found a dataset of interest, he or she can enter the code of the dataset into a second text box. The dataset will then be automatically downloaded. Access to Eurostat data is obtained via the package "eurostat" [@Lahti.2017].
+
+After a dataset has been downloaded (this can take some time!), a table displaying the data will be rendered. First of all, the user has to select the variables which are of interest (either two different variables or the same variable twice).
+
+In the next step, a table with column filters is rendered. The user needs to filter all variables which are not blocked. The user should select only one level per column and a year between 1990 and the maximally available year (depending on population data from Eurostat, see below). If these conditions are not met, the filters can not be applied. The columns containing the previously selected variables as well as the variables with the geographic areas and values are blocked and can not be filtered. Based on the applied filters, the Eurostat data are then subsetted and reshaped from long to wide format. Subsequently, the levels of the previously selected variables of interest are shown and need to be selected.
+
+After the "Create plot" button has been clicked, a variable with the population density will be added to the data on which the selected levels will be normalized. Currently, the population density is retrieved from the Eurostat dataset "demo_r_d3dens". However, population densities of different European countries are only available from 1990 onwards and typically not available for the past 1-2 years, which is a limitation. Also, it has to be noted, that all rows from the dataset for which the geographical area does correspond to any area given in the "demo_r_d3dens" dataset will be removed. The variable "geo" in the dataset selected for visualisation and the "demo_r_d3dens" dataset contain the ISO codes that are used to map the data.
+
+Finally, the bivariate choropleth and a legend will be rendered. A mapshot of the bivariate choropleth may be downloaded. Furthermore, the final dataset can also be downloaded and may be uploaded to the app later on to reproduce the same plot. This only appears to work when using the app in a browser.
+
+### Eurostat example
+
+If you search for datasets using the search term "health", you can find a number of Eurostat datasets including one with the code "hlth_silc_18". It contains data on self-perceived health by sex, age and degree of urbanisation.
+
+## Credit
+
+The app was created during a seminar at the University of Konstanz (course instructor: [Matthias Bannert](https://github.com/mbannert)) in 2018/19 by Jenny Kloster and Julia E. Koller. Both contributed to the app concept. Jenny Kloster focused on the data management required for the use of Eurostat datasets and the "eurostat" package. Julia E. Koller programmed the app with "shiny" using instructions from @ArtSteinmetz.2017 and @JoshuaStevens.2015. Furthermore, she updated the app and documentation in 2023.
+
+The app was created during a seminar at the University of Konstanz (course instructor: Matthias Bannert) in 2018/19 by Jenny Kloster and Julia E. Koller. Both contributed to the app concept. Jenny Kloster focused on the data management required for the use of Eurostat datasets and the "eurostat" package. Julia E. Koller programmed the app with "shiny" using instructions from @ArtSteinmetz.2017 and @JoshuaStevens.2015. Furthermore, she updated the app and documentation in 2023.
