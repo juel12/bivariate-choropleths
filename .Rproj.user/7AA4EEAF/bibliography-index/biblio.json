@@ -1,0 +1,194 @@
+{
+    "sources": [
+        {
+            "URL": "https://cran.r-project.org/web/packages/tmap/vignettes/tmap-getstarted.html",
+            "id": ".2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "title": "Tmap: Get started!",
+            "title-short": "Tmap",
+            "type": ""
+        },
+        {
+            "URL": "https://rpubs.com/apsteinmetz/prek",
+            "author": [
+                {
+                    "literal": "Art Steinmetz"
+                }
+            ],
+            "id": "ArtSteinmetz.2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "title": "Exploring the distribution of NYC Pre-K seats vs. neighborhood income",
+            "type": ""
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=shiny",
+            "author": [
+                {
+                    "family": "Chang",
+                    "given": "Winston"
+                },
+                {
+                    "family": "Cheng",
+                    "given": "Joe"
+                },
+                {
+                    "family": "Allaire",
+                    "given": "J. J."
+                },
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                },
+                {
+                    "family": "McPherson",
+                    "given": "Jonathan"
+                }
+            ],
+            "id": "Chang.2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "shiny: Web Application Framework for R",
+            "type": ""
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=leaflet",
+            "author": [
+                {
+                    "family": "Cheng",
+                    "given": "Joe"
+                },
+                {
+                    "family": "Karambelkar",
+                    "given": "Bhaskar"
+                },
+                {
+                    "family": "Xie",
+                    "given": "Yihui"
+                }
+            ],
+            "id": "Cheng.2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "leaflet: Create Interactive Web Maps with the JavaScript ’Leaflet’ Library",
+            "type": ""
+        },
+        {
+            "URL": "http://www.joshuastevens.net/cartography/make-a-bivariate-choropleth-map/",
+            "author": [
+                {
+                    "literal": "Joshua Stevens"
+                }
+            ],
+            "id": "JoshuaStevens.2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "title": "Bivariate Choropleth Maps: A How-to Guide",
+            "type": ""
+        },
+        {
+            "URL": "https://journal.r-project.org/archive/2017/RJ-2017-019/index.html",
+            "author": [
+                {
+                    "family": "Lahti",
+                    "given": "Leo"
+                },
+                {
+                    "family": "Huovari",
+                    "given": "Janne"
+                },
+                {
+                    "family": "Kainu",
+                    "given": "Markus"
+                },
+                {
+                    "family": "Biecek",
+                    "given": "Przemyslaw"
+                }
+            ],
+            "id": "Lahti.2017",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "385-392",
+            "title": "eurostat R package",
+            "type": "article-journal",
+            "volume": "9"
+        },
+        {
+            "DOI": "10.18637/jss.v084.i06",
+            "author": [
+                {
+                    "family": "Tennekes",
+                    "given": "Martijn"
+                }
+            ],
+            "container-title": "Journal of Statistical Software",
+            "id": "Tennekes.2018",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "1-39",
+            "title": "tmap: Thematic Maps in R",
+            "type": "article-journal",
+            "volume": "84"
+        },
+        {
+            "URL": "https://CRAN.R-project.org/package=webshot",
+            "author": [
+                {
+                    "family": "Chang",
+                    "given": "Winston"
+                }
+            ],
+            "id": "webshot",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "title": "Webshot: Take screenshots of web pages",
+            "title-short": "Webshot",
+            "type": "article-journal"
+        }
+    ],
+    "project_biblios": []
+}

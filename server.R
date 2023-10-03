@@ -11,7 +11,7 @@ library(eurostat) #eurostat data
 library(Hmisc)
 library(stringr)
 library(dplyr) #filter, mutate, reshape
-library(lubridate) #extract year
+library(reshape2) #melt
 '%!in%' <- function(x,y)!('%in%'(x,y))
 
 #library(sf)
@@ -37,13 +37,14 @@ library(shinyjs) #enable & disable/ show & hide
 jsResetCode <- "shinyjs.reset = function() {history.go(0)}"
 
 library(shinydashboard)
+library(dashboardthemes)
+#install_github("nik01010/dashboardthemes")
 #library(shinyWidgets)
 options(shiny.fullstacktrace = TRUE) #, shiny.error = browser
 
 #fix tmap invalid polygons
 tmap_options(check.and.fix = TRUE)
-sf::sf_use_s2(FALSE) #https://github.com/afrimapr/afrimapr-book/issues/30
-
+sf_use_s2(FALSE) #https://github.com/afrimapr/afrimapr-book/issues/30
 
 #https://cran.r-project.org/web/packages/pals/vignettes/bivariate_choropleths.html
 ################################################
@@ -259,10 +260,8 @@ dataset <- reactive({
       {NULL}
     else{
       if(input$data_input1 == "Eurostat data"){
-        dataset<-as.data.frame(dataset0$df_data)
-        print(class(dataset))
-        #dataset$time<-as.factor(dataset$time) # level in DT
-        dataset[,-which(names(dataset) %in% c("geo", "values"))]<-lapply(dataset[,-which(names(dataset) %in% c("geo", "values"))], as.factor)
+        dataset<-dataset0$df_data
+        dataset$time<-as.factor(dataset$time) # level in DT
         dataset
         }
       else{
@@ -428,7 +427,7 @@ datasetb<- reactive({
     {dataset<-dataset()
     X1<-input$Vgl3.2
     dataset<- dataset%>% #reorder position ->in render DT no search 1,2
-      select("geo", "values", X1, everything()) #all_of( 
+      select("geo", "values", X1, everything()) 
     dataset  
     }
     else{
@@ -516,10 +515,9 @@ output$instructions<-renderUI({
   if ((is.null(datatable2()) & is.null(datatable1())) ||
       (applyfilter$afa==3))
     return(NULL)
-  else{dens01<-get_eurostat("demo_r_d3dens")
-  HTML(paste(c("Please filter all possible columns by selecting ONE term per 
+  else{HTML(paste("Please filter all possible columns by selecting ONE term per 
                   column and click apply filters.", "For time, any chosen year 
-                  has to be between 1990 and ", max(year(dens01$time)), "."),sep = "<br/>"))}
+                  has to be between 1990 and 2016.",sep = "<br/>"))}
 })
 
 output$filter1 <- renderUI({
@@ -605,7 +603,7 @@ dataset1<-reactive({
 })
 
 
-#check if time is valid --> population density available for 1990: max year of demo_r_d3dens dataset
+#check if time is valid --> population density available for 1990:2016
 time<-reactive({
   if(is.null(dataset1())){NULL}
   else{
@@ -619,8 +617,8 @@ observeEvent(input$filter2,{
   if(is.null(time())|| is.null(dataset1())|| 
      applyfilter$afa ==0 || applyfilter$afa ==2 || applyfilter$afa ==3)
     {NULL}
-  else{dens02<-get_eurostat("demo_r_d3dens")
-    if(applyfilter$afa ==1 & time() %in% c(1990:max(year(dens02$time))))
+  else{
+    if(applyfilter$afa ==1 & time() %in% c(1990:2016))
     {applyfilter$afa<-2}
     else{applyfilter$afa<-0}
   }
@@ -1199,13 +1197,8 @@ legend <- reactive({
     X2<-paste(Xb,sep=" ", "-->")
 
     #Legende
-<<<<<<< HEAD
-    legendGoal=as.data.frame.table(matrix(1:9,nrow=3)) #3*3 matrix
-    lg <- ggplot(legendGoal, aes(Var2,Var1,fill = as.factor(Freq)))+ 
-=======
     legendGoal=melt(matrix(1:9,nrow=3)) #3*3 matrix
     lg <- ggplot(legendGoal, aes(Var2,Var1,fill = as.factor(value)))+ 
->>>>>>> d9344be6d57ebfc4ee08052e5f082c4e40598c2d
                   geom_tile()+
                   scale_fill_manual(name="",values=bvColors)+
                   theme(legend.position="none", 
