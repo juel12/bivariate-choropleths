@@ -1,8 +1,8 @@
 ## ui.R ##
 
-dashboardPage(
-  dashboardHeader(title = "Bivariate Choreopleths"),
-  dashboardSidebar(theme_onenote, tags$style(".skin-blue .sidebar a { color: #444; }"),#design
+  ui <- fluidPage(
+    titlePanel("Bivariate Choropleths"),
+sidebarPanel(
     shinyjs::useShinyjs(),
     #extendShinyjs(text = jsResetCode),
     fluidRow(
@@ -72,45 +72,45 @@ dashboardPage(
     fluidRow(
      column(12, div(style = "height:200px")
       ))
-), #von Beginn sidebar
-  dashboardBody(
+), #closes sidebar
+mainPanel(
     fluidPage(
       # tags$head(tags$style(
       #   HTML("input[type='search']:disabled {visibility:hidden}")
       # )),
       shinyjs::useShinyjs(),
       fluidRow(
-        column(12, DTOutput("eurostatdata")
+        column(12, DT::DTOutput("eurostatdata")
         )),
       fluidRow(
-        column(12, tableOutput("description1")
+        column(12, shiny::tableOutput("description1")
         )),
       fluidRow(
-        column(12, DTOutput("testtab")
+        column(12, DT::DTOutput("testtab")
         )),
       fluidRow(
-        column(12, DTOutput("testtab2")
+        column(12, DT::DTOutput("testtab2")
         )),
       fluidRow(
-        column(12, align = "center", tags$b(htmlOutput("instructions"))
+        column(12, align = "center", tags$b(shiny::htmlOutput("instructions"))
         )),
       fluidRow( 
-        column(12, align = "center", uiOutput("filter1")
+        column(12, align = "center", shiny::uiOutput("filter1")
         )),
       fluidRow(
-        column(12, DTOutput("tbl")
+        column(12, DT::DTOutput("tbl")
         )),
       fluidRow(
-        column(12, DTOutput("tbl2")
+        column(12, DT::DTOutput("tbl2")
         )),
       fluidRow( style="padding:20px;",
-        column(9, leafletOutput("bivariat")
+        column(9, leaflet::leafletOutput("bivariat")
         ), 
-        column(3, plotOutput("legend")
+        column(3, shiny::plotOutput("legend")
         )),
       fluidRow(
-        column(4, align = "center", uiOutput("downloadPlot1")),
-        column(4, align = "center", uiOutput("downloadData1"),
+        column(4, align = "center", shiny::uiOutput("downloadPlot1")),
+        column(4, align = "center", shiny::uiOutput("downloadData1"),
         column(4)
         )),
       fluidRow(
@@ -122,6 +122,6 @@ dashboardPage(
         #))),
       fluidRow(column(12, div(style = "height:100px")
         )) 
-)
-)
+    )
+  )
 )
