@@ -519,7 +519,7 @@ shinyServer(function(input,output,session){
     else{dens01<-get_eurostat("demo_r_d3dens")
     HTML(paste(c("Please filter all possible columns by selecting ONE term per 
                   column and click apply filters.", "For time, any chosen year 
-                  has to be between 1990 and ", max(year(dens01$time)), "."),sep = "<br/>"))}
+                  has to be between 1990 and ", max(year(dens01$time)), "."),sep = ""))}#<br/>
   })
   
   output$filter1 <- renderUI({
