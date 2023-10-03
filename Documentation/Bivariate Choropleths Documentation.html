@@ -8,7 +8,7 @@
 
 <meta name="author" content="Julia E. Koller">
 
-<title>Bivariate Choropleths Documentation</title>
+<title>Bivariate choropleths Documentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,7 +99,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Bivariate Choropleths Documentation</h1>
+<h1 class="title">Bivariate choropleths Documentation</h1>
 </div>
 
 
@@ -124,21 +124,21 @@ div.csl-indent {
 <h1>A Shiny app for bivariate Choropleths</h1>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>This app was created using shiny <span class="citation" data-cites="Chang.2018">(<a href="#ref-Chang.2018" role="doc-biblioref">Chang et al. 2018</a>)</span> with R version 3.5.2 (2018-12-20) and later updated with R version 4.3.1 (2023-06-16). Its purpose is to create bivariate choropleths.</p>
-<p>Creating bivariate choreopleths can be a bit tricky and somewhat time-consuming, especially for newbies in R and similar programs. Therefore, an app might be a convenient way to simplify the creation of bivariate choreopleths.</p>
+<p>This app was created using shiny <span class="citation" data-cites="Chang.2018">(<a href="#ref-Chang.2018" role="doc-biblioref">Chang et al. 2018</a>)</span> with R version 3.5.2 (2018-12-20) and later updated with R version 4.1.3 (2022-03-10). Its purpose is to create bivariate choropleths.</p>
+<p>Creating bivariate choropleths can be a bit tricky and somewhat time-consuming, especially for newbies in R and similar programs. Therefore, an app might be a convenient way to simplify the creation of bivariate choropleths.</p>
 <p>The app was not specifically created for psychological purposes. However, data visualization and exploration are gaining importance for psychological research. The current app can be a helpful tool for exploring potential relationships between two variables across different geographical areas or may be used to visualize the findings of such. The app can be applied to any topic, including psychological questions, depending on the data. For example, a health psychologist may be interested in one of the many Eurostat datasets concerned with health (e.g.&nbsp;self-perceived health).</p>
 </section>
 <section id="bivariate-choropleths" class="level2">
 <h2 class="anchored" data-anchor-id="bivariate-choropleths">Bivariate Choropleths</h2>
 <p>The bivariate choropleths created in the app are being created following the instructions by <span class="citation" data-cites="ArtSteinmetz.2017">Art Steinmetz (<a href="#ref-ArtSteinmetz.2017" role="doc-biblioref">2017</a>)</span>.</p>
-<p>The variables compared in the plot are being normalized on the population sizes. This is important because otherwise, population size differences of the geographic areas would be reflected in the choropleth <span class="citation" data-cites="JoshuaStevens.2015">(<a href="#ref-JoshuaStevens.2015" role="doc-biblioref">Joshua Stevens 2015</a>)</span>. Both variables are categorized into three groups. Subsequently, a single variable combining the classified variables is created. This variable contains nine (3*3) groups, each corresponding to a single color. The geographical shapes, corresponding to the geographic areas in the dataset, are then colored based on this variable. All bivariate choropleths are produced using the package “tmap” <span class="citation" data-cites="Tennekes.2018">(<a href="#ref-Tennekes.2018" role="doc-biblioref">Tennekes 2018</a>)</span> and plotted on a world map using leaflet <span class="citation" data-cites="Cheng.2018">(<a href="#ref-Cheng.2018" role="doc-biblioref">Cheng, Karambelkar, and Xie 2018</a>)</span>.</p>
+<p>The variables compared in the plot are being normalized on the population sizes. This is important because otherwise, population size differences of the geographic areas would be reflected in the choropleth <span class="citation" data-cites="JoshuaStevens.2015">(<a href="#ref-JoshuaStevens.2015" role="doc-biblioref">Joshua Stevens 2015</a>)</span>. Both variables are categorized into three groups. Subsequently, a single variable combining the classified variables is created. This variable contains nine (3*3) groups, each corresponding to a single color. The geographical shapes, corresponding to the geographic areas in the dataset, are then colored based on this variable. All bivariate choropleths are produced using the package tmap <span class="citation" data-cites="Tennekes.2018">(<a href="#ref-Tennekes.2018" role="doc-biblioref">Tennekes 2018</a>)</span> and plotted on a world map using leaflet <span class="citation" data-cites="Cheng.2018">(<a href="#ref-Cheng.2018" role="doc-biblioref">Cheng, Karambelkar, and Xie 2018</a>)</span>.</p>
 </section>
 <section id="own-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="own-dataset">Own dataset</h2>
 <p>The user can choose to upload an own dataset. However, so far only excel datasets (.xls or .xlsx) can be uploaded. Moreover, the data need to be cleaned beforehand. The dataset should be provided in wide format.</p>
 <p>After uploading a dataset, a table is rendered displaying the data to help the user select variables. The user needs to select two variables of interest and a variable with the geographic areas (either German federal states or European countries) in the sidebar. Optionally, a variable containing some kind of time information (e.g.&nbsp;years) can be specified, in which case any level of the variable can be selected. Furthermore, the user needs to select the map that will be used to plot the data. So far, only maps of European countries and German federal states are available. Maps can not be uploaded by the user. The levels of the dataset variable containing the geographic area needs to correspond to the map.</p>
 <p>If a time variable and any level of the variable are selected, the dataset will be filtered based on the level of this variable (e.g.&nbsp;only data from the year 2015 will be used going forward). The variables that are compared in the bivariate choropleth will be normalized on the variable containing the population sizes for each area.</p>
-<p>After the “Create plot” button has been clicked, the bivariate choreopleth and a legend will be rendered. A mapshot of the bivariate choreopleth can be downloaded using “webshot” <span class="citation" data-cites="webshot">(<a href="#ref-webshot" role="doc-biblioref">Chang 2023</a>)</span>. However, as this requires “PhantomJS”, you might need to install it first using the following code:</p>
+<p>After the “Create plot” button has been clicked, the bivariate choropleth and a legend will be rendered. A mapshot of the bivariate choropleth can be downloaded using “webshot” <span class="citation" data-cites="webshot">(<a href="#ref-webshot" role="doc-biblioref">Chang 2023</a>)</span>. However, as this requires “PhantomJS”, you might need to install it first using the following code:</p>
 <div class="sourceCode" id="cb1" data-eval="false"><pre class="sourceCode R code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>webshot<span class="sc">::</span><span class="fu">install_phantomjs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="eurostat-data" class="level2">
@@ -146,20 +146,16 @@ div.csl-indent {
 <p>Instead of uploading an own dataset, the user can choose to use any Eurostat dataset. The app allows to search for Eurostat datasets by entering a search term into a search bar. Once the user has found a dataset of interest, he or she can enter the code of the dataset into a second text box. The dataset will then be automatically downloaded. Access to Eurostat data is obtained via the package “eurostat” <span class="citation" data-cites="Lahti.2017">(<a href="#ref-Lahti.2017" role="doc-biblioref">Lahti et al. 2017</a>)</span>.</p>
 <p>After a dataset has been downloaded (this can take some time!), a table displaying the data will be rendered. First of all, the user has to select the variables which are of interest (either two different variables or the same variable twice).</p>
 <p>In the next step, a table with column filters is rendered. The user needs to filter all variables which are not blocked. The user should select only one level per column and a year between 1990 and the maximally available year (depending on population data from Eurostat, see below). If these conditions are not met, the filters can not be applied. The columns containing the previously selected variables as well as the variables with the geographic areas and values are blocked and can not be filtered. Based on the applied filters, the Eurostat data are then subsetted and reshaped from long to wide format. Subsequently, the levels of the previously selected variables of interest are shown and need to be selected.</p>
-<p>After the “Create plot” button has been clicked, a variable with the population density will be added to the data on which the selected levels will be normalized. Currently, the population density is retrieved from the Eurostat dataset “demo_r_d3dens”. However, population densities of different European countries are only available from 1990 onwards and typically not available for the past 1-2 years, which is a limitation. Also, it has to be noted, that all rows from the dataset for which the geographical area does correspond to any area given in the “demo_r_d3dens” dataset will be removed. The variable “geo” in the dataset selected for visualisation and the “demo_r_d3dens” dataset contain the ISO codes that are used to map the data.</p>
+<p>After the "Create plot" button has been clicked, a variable with the population density will be added to the data on which the selected levels will be normalized. Currently, the population density is retrieved from the Eurostat dataset "demo_r_d3dens". However, population densities of different European countries are only available from 1990 onwards and typically not available for the past 1-2 years, which is a limitation. Also, it has to be noted, that all rows from the dataset for which the geographical area does correspond to any area given in the "demo_r_d3dens" dataset will be removed. The variable "geo" in the dataset selected for visualisation and the "demo_r_d3dens" dataset contain the ISO codes that are used to map the data.</p>
 <p>Finally, the bivariate choropleth and a legend will be rendered. A mapshot of the bivariate choropleth may be downloaded. Furthermore, the final dataset can also be downloaded and may be uploaded to the app later on to reproduce the same plot. This only appears to work when using the app in a browser.</p>
 <section id="eurostat-example" class="level3">
 <h3 class="anchored" data-anchor-id="eurostat-example">Eurostat example</h3>
-<p>If you search for datasets using the search term “health”, you can find a number of Eurostat datasets including one with the code “hlth_silc_18”. It contains data on self-perceived health by sex, age and degree of urbanisation.</p>
+<p>If you search for datasets using the search term "health", you can find a number of Eurostat datasets including one with the code "hlth_silc_18". It contains data on self-perceived health by sex, age and degree of urbanisation.</p>
 </section>
 </section>
 <section id="credit" class="level2">
 <h2 class="anchored" data-anchor-id="credit">Credit</h2>
-<<<<<<< HEAD:Documentation/Bivariate Choropleths Documentation.html
-<p>The app was created during a seminar at the University of Konstanz (course instructor: <a href="https://github.com/mbannert">Matthias Bannert</a>) in 2018/19 by Jenny Kloster and Julia E. Koller. Both contributed to the app concept. Jenny Kloster focused on the data management required for the use of Eurostat datasets and the “eurostat” package. Julia E. Koller programmed the app with “shiny” using instructions from <span class="citation" data-cites="ArtSteinmetz.2017">Art Steinmetz (<a href="#ref-ArtSteinmetz.2017" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="JoshuaStevens.2015">Joshua Stevens (<a href="#ref-JoshuaStevens.2015" role="doc-biblioref">2015</a>)</span>. Furthermore, she updated the app and documentation in 2023.</p>
-=======
 <p>The app was created during a seminar at the University of Konstanz (course instructor: Matthias Bannert) in 2018/19 by Jenny Kloster and Julia E. Koller. Both contributed to the app concept. Jenny Kloster focused on the data management required for the use of Eurostat datasets and the “eurostat” package. Julia E. Koller programmed the app with “shiny” using instructions from <span class="citation" data-cites="ArtSteinmetz.2017">Art Steinmetz (<a href="#ref-ArtSteinmetz.2017" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="JoshuaStevens.2015">Joshua Stevens (<a href="#ref-JoshuaStevens.2015" role="doc-biblioref">2015</a>)</span>. Furthermore, she updated the app and documentation in 2023.</p>
->>>>>>> d9344be6d57ebfc4ee08052e5f082c4e40598c2d:Documentation/Bivariate Choreopleths Documentation.html
 
 </section>
 </section>

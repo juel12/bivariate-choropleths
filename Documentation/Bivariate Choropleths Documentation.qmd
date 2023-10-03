@@ -16,8 +16,6 @@ Creating bivariate choropleths can be a bit tricky and somewhat time-consuming, 
 
 The app was not specifically created for psychological purposes. However, data visualization and exploration are gaining importance for psychological research. The current app can be a helpful tool for exploring potential relationships between two variables across different geographical areas or may be used to visualize the findings of such. The app can be applied to any topic, including psychological questions, depending on the data. For example, a health psychologist may be interested in one of the many Eurostat datasets concerned with health (e.g. self-perceived health).
 
-At this point, it has to be noted, that data exploration tools should never be used for fishing, which can severely bias results. Furthermore, data visualization can not replace statistical testing of previously defined hypotheses.
-
 ## Bivariate Choropleths
 
 The bivariate choropleths created in the app are being created following the instructions by @ArtSteinmetz.2017.
@@ -42,17 +40,17 @@ webshot::install_phantomjs()
 
 Instead of uploading an own dataset, the user can choose to use any Eurostat dataset. The app allows to search for Eurostat datasets by entering a search term into a search bar. Once the user has found a dataset of interest, he or she can enter the code of the dataset into a second text box. The dataset will then be automatically downloaded. Access to Eurostat data is obtained via the package "eurostat" [@Lahti.2017].
 
-After a dataset has been downloaded, a table displaying the data will be rendered. First of all, the user has to select the variables which are of interest (either two different variables or the same variable twice).
+After a dataset has been downloaded (this can take some time!), a table displaying the data will be rendered. First of all, the user has to select the variables which are of interest (either two different variables or the same variable twice).
 
-In the next step, a table with column filters is rendered. The user needs to filter all variables which are not blocked. The user should select only one level per column and a year between 1990 and 2016. If these conditions are not met, the filters can not be applied. The columns containing the previously selected variables as well as the variables with the geographic areas and values are blocked and can not be filtered.
+In the next step, a table with column filters is rendered. The user needs to filter all variables which are not blocked. The user should select only one level per column and a year between 1990 and the maximally available year (depending on population data from Eurostat, see below). If these conditions are not met, the filters can not be applied. The columns containing the previously selected variables as well as the variables with the geographic areas and values are blocked and can not be filtered. Based on the applied filters, the Eurostat data are then subsetted and reshaped from long to wide format. Subsequently, the levels of the previously selected variables of interest are shown and need to be selected.
 
-Based on the applied filters, the Eurostat data are then subsetted and reshaped from long to wide format.
+After the \"Create plot\" button has been clicked, a variable with the population density will be added to the data on which the selected levels will be normalized. Currently, the population density is retrieved from the Eurostat dataset \"demo_r_d3dens\". However, population densities of different European countries are only available from 1990 onwards and typically not available for the past 1-2 years, which is a limitation. Also, it has to be noted, that all rows from the dataset for which the geographical area does correspond to any area given in the \"demo_r_d3dens\" dataset will be removed. The variable \"geo\" in the dataset selected for visualisation and the \"demo_r_d3dens\" dataset contain the ISO codes that are used to map the data.
 
-Subsequently, the levels of the previously selected variables of interest are shown and need to be selected.
+Finally, the bivariate choropleth and a legend will be rendered. A mapshot of the bivariate choropleth may be downloaded. Furthermore, the final dataset can also be downloaded and may be uploaded to the app later on to reproduce the same plot. This only appears to work when using the app in a browser.
 
-After the "Create plot" button has been clicked, a variable with the population density will be added to the data on which the selected levels will be normalized. Currently, the population density is retrieved from the Eurostat dataset "demo_r_d3dens". However, population densities of different European countries are only available for years between 1990 and 2016, which is a limitation. Also, it has to be noted, that all rows from the dataset for which the geographical area does correspond to any area given in the "demo_r_d3dens" dataset will be removed.
+### Eurostat example
 
-Finally, the bivariate choropleth and a legend will be rendered. A mapshot of the bivariate choropleth may be downloaded. Furthermore, the final dataset can also be downloaded and may be uploaded to the app later on to reproduce the same plot.
+If you search for datasets using the search term \"health\", you can find a number of Eurostat datasets including one with the code \"hlth_silc_18\". It contains data on self-perceived health by sex, age and degree of urbanisation.
 
 ## Credit
 
